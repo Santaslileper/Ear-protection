@@ -78,8 +78,8 @@ namespace A {
             var Ulist = new S.Collections.Generic.List<S.Action>();
             F.FlowLayoutPanel R = new F.FlowLayoutPanel{ FlowDirection=F.FlowDirection.LeftToRight, AutoSize=true, Margin=new F.Padding(0,0,0,25), WrapContents=false };
             ST z = new ST{ Margin=new F.Padding(0,5,15,0), C=Prg.IsStart() }; z.X+=(s,e)=>Prg.SetStart(z.C);
-            R.Controls.Add(new F.Label{ Text="CORE PROTECTION", Font=new D.Font("Segoe UI Semibold", 12), AutoSize=true, ForeColor=D.Color.FromArgb(0,204,153), Margin=new Padding(0,0,40,0) });
-            R.Controls.Add(z); R.Controls.Add(new F.Label{ Text="Sync with Windows", AutoSize=true, Margin=new Padding(0,8,0,0) });
+            R.Controls.Add(new F.Label{ Text="CORE PROTECTION", Font=new D.Font("Segoe UI Semibold", 12), AutoSize=true, ForeColor=D.Color.FromArgb(0,204,153), Margin=new F.Padding(0,0,40,0) });
+            R.Controls.Add(z); R.Controls.Add(new F.Label{ Text="Sync with Windows", AutoSize=true, Margin=new F.Padding(0,8,0,0) });
             p.Controls.Add(R);
             p.Controls.Add(new F.Label{ Text="DEVICE CONTROLS", Font=new D.Font("Segoe UI", 8, D.FontStyle.Bold), ForeColor=D.Color.FromArgb(120,120,120), AutoSize=true, Margin=new F.Padding(0,0,0,15) });
             foreach(var rawDev in A.U.A()) {
