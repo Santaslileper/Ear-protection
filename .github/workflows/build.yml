@@ -1,0 +1,44 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build with csc.exe
+        shell: pwsh
+        run: |
+          $csc = "C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe"
+          # Compiling from src/ and using assets/icon.ico
+          # Note: We use relative paths for the compiler
+          & $csc /target:winexe /win32icon:"assets/icon.ico" /out:"VolumeProtector.exe" "src/VolumeProtector.cs"
+          if ($LASTEXITCODE -ne 0) { throw "Build failed" }
+          Write-Host "Build succeeded."
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VolumeProtector-binary
+          path: VolumeProtector.exe
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: VolumeProtector.exe
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

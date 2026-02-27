@@ -1,0 +1,24 @@
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+*.obj
+bin/
+obj/
+
+# Project files
+.vs/
+*.user
+*.suo
+*.sln
+
+# Work files / Scratch
+original_code.txt
+working_code.cs
+test.exe
+build_log.txt
+
+# OS Junk
+Thumbs.db
+Desktop.ini
+.DS_Store
