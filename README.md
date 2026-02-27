@@ -42,8 +42,11 @@ You can download and launch the application directly from your terminal:
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $d = [Environment]::GetFolderPath("Desktop"); irm https://github.com/Santaslileper/Ear-protection/releases/latest/download/VolumeProtector.exe -OutFile "$d\VolumeProtector.exe"; Start-Process "$d\VolumeProtector.exe"
 ```
 
+> [!NOTE]
+> **What does this do?** It downloads one small file (`VolumeProtector.exe`, ~28 KB) straight to your **Desktop** and opens it. No installer, no setup wizard, nothing hidden. Just one file — delete it any time to uninstall.
+
 > [!TIP]
-> After launching, look for the **Green Shield** in your system tray. Right-click it and select **Settings** to set your desired limits.
+> After launching, look for the **green shield icon** in your **system tray** (bottom-right corner of the screen, near the clock). Right-click it → **"Open Settings"** to set your volume limit per device.
 
 ---
 
